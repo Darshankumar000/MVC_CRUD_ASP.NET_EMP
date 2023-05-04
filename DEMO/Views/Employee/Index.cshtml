@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h1>Index</h1>*@
+
+<div>
+    <h1 style="text-align:center;">Employee Details</h1>
+    <table class="table table-bordered table-responsive table-dark table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (EmployeeModel item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Name</td>
+                <td>@item.Department</td>
+                <td>@item.Salary</td>
+                <td>
+                    <a asp-action="EditEmployee" asp-route-id="@item.id">Edit</a>
+                    <a asp-action="DeleteEmployee" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
